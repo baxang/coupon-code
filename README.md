@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/baxang/coupon-code.svg)](https://travis-ci.org/baxang/coupon-code)
+[![Code Climate](https://codeclimate.com/github/baxang/coupon-code/badges/gpa.svg)](https://codeclimate.com/github/baxang/coupon-code)
+
 # CouponCode
 
 CouponCode gem generates and validates coupon codes.
