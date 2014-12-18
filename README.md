@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/baxang/coupon-code.svg)](https://travis-ci.org/baxang/coupon-code)
 [![Code Climate](https://codeclimate.com/github/baxang/coupon-code/badges/gpa.svg)](https://codeclimate.com/github/baxang/coupon-code)
+[![Gem Version](https://badge.fury.io/rb/coupon_code.svg)](http://badge.fury.io/rb/coupon_code)
 
 # CouponCode
 
