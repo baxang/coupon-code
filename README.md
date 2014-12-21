@@ -4,12 +4,13 @@
 
 # CouponCode
 
-CouponCode gem generates and validates coupon codes.
+[README-한국어][README-kr]
 
-It is a Ruby implementation of [Grant][grant]'s [Algorithm::CouponCode][couponcode],
-but please note that only basic generation/validation functionality  implemented at the moment and
-some of the features the CPAN module provides such as feeding a plaintext, auto-correct, and jQuery plugin are
-not yet implemented.
+CouponCode gem generates and validates coupon codes. Suitable for e-Commerce sites and businesses who want to issue coupons/vouchers to customers.
+
+It is a Ruby implementation of [Grant][grant]'s [Algorithm::CouponCode][couponcode], so the characteristics and features of this gem is alike. Please read [the original documentation of Algorithm::CouponCode](http://search.cpan.org/dist/Algorithm-CouponCode/lib/Algorithm/CouponCode.pm) for details.
+
+However, please be aware that not all the nice and thoughtful functionality the original CPAN module has are implemented at the moment. Generating codes from a plaintext, auto-correct, and jQuery plugin are not included.
 
 This gem is developed for https://stripes.co.kr
 
@@ -64,4 +65,5 @@ MIT. See [LICENSE][license] for more details.
 [couponcode]: https://github.com/grantm/Algorithm-CouponCode
 [chilts]: https://github.com/chilts
 [node-couponcode]: https://github.com/chilts/node-coupon-code
-[license]: https://raw.github.com/appsattic/node-coupon-code/master/LICENSE
+[license]: https://github.com/baxang/coupon-code/blob/master/LICENSE.txt
+[README-kr]: https://github.com/baxang/coupon-code/blob/master/README-ko.md
