@@ -1,0 +1,5 @@
+Documentation:
+  Enabled: false
+
+Style/FileName:
+  Exclude: ['bin/coupon-code']

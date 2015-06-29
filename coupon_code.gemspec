@@ -8,8 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = CouponCode::VERSION
   spec.authors       = ['Sanghyun Park']
   spec.email         = ['sh@baxang.com']
-  spec.summary       = %q{Generate and validate coupon codes.}
-  spec.description   = %q{A Ruby implementation of Perl's Algorithm::CouponCode CPAN module.}
+  spec.summary       = 'Generate and validate coupon codes.'
+  spec.description   = 'A Ruby implementation of Perl\'s' \
+                       ' Algorithm::CouponCode CPAN module.'
   spec.homepage      = 'https://github.com/baxang/coupon-code'
   spec.license       = 'MIT'
 

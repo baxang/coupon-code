@@ -1,13 +1,13 @@
-require "bundler/gem_tasks"
+require 'bundler/gem_tasks'
 require 'rake/testtask'
 
 Rake::TestTask.new do |t|
   t.libs << 'test'
-  t.pattern = "test/*_test.rb"
+  t.pattern = 'test/*_test.rb'
 end
 
-task :default => :test
+task default: :test
 
 task :console do
-  exec "irb -r coupon_code -I ./lib"
+  exec 'irb -r coupon_code -I ./lib'
 end

@@ -1,4 +1,4 @@
-require "coupon_code/version"
+require 'coupon_code/version'
 require 'securerandom'
 require 'digest/sha1'
 
@@ -9,13 +9,10 @@ module CouponCode
 
   def self.generate(options = { parts: PARTS })
     num_parts = options.delete(:parts)
-
     parts = []
     (1..num_parts).each do |i|
       part = ''
-      (1...LENGTH).each do |j|
-        part << randome_symbol
-      end
+      (1...LENGTH).each { part << random_symbol }
       part << checkdigit_alg_1(part, i)
       parts << part
     end
@@ -36,15 +33,14 @@ module CouponCode
   end
 
   def self.checkdigit_alg_1(orig, check)
-
-    orig.split('').each_with_index do |c, i|
+    orig.split('').each_with_index do |c, _|
       k = SYMBOL.index(c)
       check = check * 19 + k
     end
-    SYMBOL[ check % 31 ]
+    SYMBOL[check % 31]
   end
 
-  def self.randome_symbol
-    SYMBOL[ rand(SYMBOL.length) ]
+  def self.random_symbol
+    SYMBOL[rand(SYMBOL.length)]
   end
 end
