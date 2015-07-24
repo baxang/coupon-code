@@ -38,6 +38,13 @@ Or install it yourself as:
     >> CouponCode.validate('1K7Q-CTFM-LMTO') # Invalid code
     => nil
 
+## Options
+
+You can change the number of parts of the generated code by passing an option hash value like:
+
+    >> CouponCode.generate(parts: 4)
+    => "1K7Q-CTFM-LMTC-DLGP"
+
 ## Testing
 
 ```ruby
