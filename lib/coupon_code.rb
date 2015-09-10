@@ -9,7 +9,7 @@ module CouponCode
 
   def self.generate(options = { parts: @@parts })
     (1..options[:parts]).map do |i|
-      part = ''
+      part = ""
       (1...LENGTH).each { part << random_symbol }
       part << checkdigit_alg_1(part, i)
 
@@ -31,7 +31,7 @@ module CouponCode
       return if check != checkdigit_alg_1(data, i + 1)
     end
 
-    parts.join('-')
+    parts.join("-")
   end
 
   def self.default_parts(parts)
