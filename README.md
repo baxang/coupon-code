@@ -42,8 +42,19 @@ Or install it yourself as:
 
 You can change the number of parts of the generated code by passing an option hash value like:
 
-    >> CouponCode.generate(parts: 4)
+    >> code = CouponCode.generate(parts: 4)
     => "1K7Q-CTFM-LMTC-DLGP"
+    >> CouponeCode.validate(code, parts: 4)
+    => "1K7Q-CTFM-LMTC-DLGP"
+
+You can also set the default number of parts you are working with so that you don't have to continually send the parts value as an option:
+
+    >> CouponCode.default_parts(5)
+    => 5
+    >> code = CouponCode.generate
+    => "CNYF-K4AH-L5PF-0RU7-5L0Q"
+    >> CouponCode.validate(code)
+    => "CNYF-K4AH-L5PF-0RU7-5L0Q"
 
 ## Testing
 
