@@ -8,15 +8,13 @@ module CouponCode
   @@parts = 3
 
   def self.generate(options = { parts: @@parts })
-    num_parts = options.delete(:parts)
-    parts = []
-    (1..num_parts).each do |i|
+    (1..options[:parts]).map do |i|
       part = ''
       (1...LENGTH).each { part << random_symbol }
       part << checkdigit_alg_1(part, i)
-      parts << part
-    end
-    parts.join('-')
+
+      part
+    end.join("-")
   end
 
   def self.validate(orig, options = { parts: @@parts })
