@@ -3,11 +3,11 @@ require 'securerandom'
 require 'digest/sha1'
 
 module CouponCode
-  SYMBOL = '0123456789ABCDEFGHJKLMNPQRTUVWXY'
-  PARTS  = 3
-  LENGTH = 4
+  SYMBOL  = '0123456789ABCDEFGHJKLMNPQRTUVWXY'
+  LENGTH  = 4
+  @@parts = 3
 
-  def self.generate(options = { parts: PARTS })
+  def self.generate(options = { parts: @@parts })
     num_parts = options.delete(:parts)
     parts = []
     (1..num_parts).each do |i|
@@ -34,6 +34,10 @@ module CouponCode
     end
 
     parts.join('-')
+  end
+
+  def self.default_parts(parts)
+    @@parts = parts
   end
 
   def self.checkdigit_alg_1(orig, check)
