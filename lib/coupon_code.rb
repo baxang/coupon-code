@@ -3,7 +3,7 @@ require 'securerandom'
 require 'digest/sha1'
 
 module CouponCode
-  SYMBOL  = '0123456789ABCDEFGHJKLMNPQRTUVWXY'
+  SYMBOL  = "0123456789ABCDEFGHJKLMNPQRTUVWXY"
   LENGTH  = 4
   @@parts = 3
 
@@ -21,7 +21,7 @@ module CouponCode
 
   def self.validate(orig, options = { parts: @@parts })
     num_parts = options.delete(:parts)
-    code      = orig.upcase.gsub(/[^0-9A-Z]+/, '')
+    code      = orig.upcase.gsub(/[^0-9A-Z]+/, "")
     parts     = code.scan(/[0-9A-Z]{#{LENGTH}}/)
 
     return if parts.length != num_parts

@@ -40,23 +40,23 @@ describe CouponCode do
     end
 
     it 'should fail to validate invalid code.' do
-      CouponCode.validate('').must_equal(nil)
+      CouponCode.validate("").must_equal(nil)
     end
 
     it 'should accept a valid code.' do
-      CouponCode.validate('1K7Q-CTFM-LMTC').wont_be_nil
+      CouponCode.validate("1K7Q-CTFM-LMTC").wont_be_nil
     end
 
     it 'should reject a short code.' do
-      CouponCode.validate('1K7Q-CTFM').must_be_nil
+      CouponCode.validate("1K7Q-CTFM").must_be_nil
     end
 
     it 'should accept a short code with correct parts.' do
-      CouponCode.validate('1K7Q-CTFM', parts: 2).wont_be_nil
+      CouponCode.validate("1K7Q-CTFM", parts: 2).wont_be_nil
     end
 
     it 'should reject a short code with wrong parts.' do
-      CouponCode.validate('CTFM-1K7Q', parts: 2).must_be_nil
+      CouponCode.validate("CTFM-1K7Q", parts: 2).must_be_nil
     end
 
     it 'should fix and validate a lowercase code.' do
