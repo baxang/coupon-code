@@ -38,6 +38,8 @@ module CouponCode
     @@parts = parts
   end
 
+  private
+
   def self.checkdigit_alg_1(orig, check)
     orig.split('').each_with_index do |c, _|
       k = SYMBOL.index(c)
