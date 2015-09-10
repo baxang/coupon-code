@@ -19,16 +19,20 @@ module CouponCode
     parts.join('-')
   end
 
-  def self.validate(orig, num_parts = PARTS)
-    code = orig.upcase
-    code.gsub!(/[^0-9A-Z]+/, '')
-    parts = code.scan(/[0-9A-Z]{#{LENGTH}}/)
+  def self.validate(orig, options = { parts: @@parts })
+    num_parts = options.delete(:parts)
+    code      = orig.upcase.gsub(/[^0-9A-Z]+/, '')
+    parts     = code.scan(/[0-9A-Z]{#{LENGTH}}/)
+
     return if parts.length != num_parts
+
     parts.each_with_index do |part, i|
       data  = part[0...(LENGTH - 1)]
       check = part[-1]
+
       return if check != checkdigit_alg_1(data, i + 1)
     end
+
     parts.join('-')
   end
 

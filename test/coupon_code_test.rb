@@ -52,11 +52,11 @@ describe CouponCode do
     end
 
     it 'should accept a short code with correct parts.' do
-      CouponCode.validate('1K7Q-CTFM', 2).wont_be_nil
+      CouponCode.validate('1K7Q-CTFM', parts: 2).wont_be_nil
     end
 
     it 'should reject a short code with wrong parts.' do
-      CouponCode.validate('CTFM-1K7Q', 2).must_be_nil
+      CouponCode.validate('CTFM-1K7Q', parts: 2).must_be_nil
     end
 
     it 'should fix and validate a lowercase code.' do
@@ -76,14 +76,24 @@ describe CouponCode do
     end
 
     it 'should valid code-pretest.' do
-      CouponCode.validate('1K7Q', 1).wont_be_nil
-      CouponCode.validate('1K7C', 1).must_be_nil
+      CouponCode.validate('1K7Q', parts: 1).wont_be_nil
+      CouponCode.validate('1K7C', parts: 1).must_be_nil
 
-      CouponCode.validate('1K7Q-CTFM', 2).wont_be_nil
-      CouponCode.validate('1K7Q-CTFW', 2).must_be_nil
+      CouponCode.validate('1K7Q-CTFM', parts: 2).wont_be_nil
+      CouponCode.validate('1K7Q-CTFW', parts: 2).must_be_nil
 
-      CouponCode.validate('1K7Q-CTFM-LMTC', 3).wont_be_nil
-      CouponCode.validate('1K7Q-CTFM-LMT1', 3).must_be_nil
+      CouponCode.validate('1K7Q-CTFM-LMTC', parts: 3).wont_be_nil
+      CouponCode.validate('1K7Q-CTFM-LMT1', parts: 3).must_be_nil
+
+      CouponCode.validate('7YQH-1FU7-E1HX-0BG9', parts: 4).wont_be_nil
+      CouponCode.validate('7YQH-1FU7-E1HX-0BGP', parts: 4).must_be_nil
+
+      CouponCode.validate('YENH-UPJK-PTE0-20U6-QYME', parts: 5).wont_be_nil
+      CouponCode.validate('YENH-UPJK-PTE0-20U6-QYMT', parts: 5).must_be_nil
+
+      CouponCode.validate('YENH-UPJK-PTE0-20U6-QYME-RBK1', parts: 6).wont_be_nil
+      CouponCode.validate('YENH-UPJK-PTE0-20U6-QYME-RBK2', parts: 6).must_be_nil
+    end
 
       CouponCode.validate('7YQH-1FU7-E1HX-0BG9', 4).wont_be_nil
       CouponCode.validate('7YQH-1FU7-E1HX-0BGP', 4).must_be_nil
