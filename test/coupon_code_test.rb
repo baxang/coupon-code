@@ -59,6 +59,10 @@ describe CouponCode do
       CouponCode.validate('CTFM-1K7Q', 2).must_be_nil
     end
 
+    it 'handles invalid characters' do
+      CouponCode.validate('obbb-m3da', 2).must_be_nil
+    end
+
     it 'should fix and validate a lowercase code.' do
       code = '1k7q-ctfm-lmtc'
       CouponCode.validate(code.downcase).must_equal(code.upcase)
