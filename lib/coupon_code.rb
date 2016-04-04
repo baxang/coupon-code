@@ -21,8 +21,8 @@ module CouponCode
 
   def self.validate(orig, num_parts = PARTS)
     code = orig.upcase
-    code.gsub!(/[^0-9A-Z]+/, '')
-    parts = code.scan(/[0-9A-Z]{#{LENGTH}}/)
+    code.gsub!(Regexp.new("[^#{SYMBOL}]+"), '')
+    parts = code.scan(Regexp.new("[#{SYMBOL}]{#{LENGTH}}"))
     return if parts.length != num_parts
     parts.each_with_index do |part, i|
       data  = part[0...(LENGTH - 1)]
