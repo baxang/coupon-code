@@ -51,7 +51,7 @@ You can change the number of parts of the generated code by passing an option ha
 ## Testing
 
 ```ruby
-$ bundle exec rake test
+$ bundle exec rake spec
 ```
 
 ## Thanks to

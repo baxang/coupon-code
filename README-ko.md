@@ -53,7 +53,7 @@
 ## 테스팅
 
 ```ruby
-$ bundle exec rake test
+$ bundle exec rake spec
 ```
 ## Thanks to
 
