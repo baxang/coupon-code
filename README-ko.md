@@ -41,6 +41,15 @@
     >> CouponCode.validate('1K7Q-CTFM-LMTO') # Invalid code
     => nil
 
+## 옵션
+
+쿠폰 코드를 만들 때 아래와 같이 옵션값을 넣어, 기본 설정인 3부분이 아닌 쿠폰 코드를 얻을 수 있습니다. 
+
+    >> CouponCode.generate(parts: 4)
+    => "1K7Q-CTFM-LMTC-DLGP"
+    >> CouponCode.validate("1K7Q-CTFM-LMTC-DLGP", 4)
+    => "1K7Q-CTFM-LMTC-DLGP"
+
 ## 테스팅
 
 ```ruby

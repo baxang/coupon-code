@@ -44,6 +44,8 @@ You can change the number of parts of the generated code by passing an option ha
 
     >> CouponCode.generate(parts: 4)
     => "1K7Q-CTFM-LMTC-DLGP"
+    >> CouponCode.validate("1K7Q-CTFM-LMTC-DLGP", 4)
+    => "1K7Q-CTFM-LMTC-DLGP"
 
 ## Testing
 
