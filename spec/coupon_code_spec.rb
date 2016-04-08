@@ -32,6 +32,10 @@ RSpec.describe CouponCode do
       expect(described_class.validate('1K7Q-CTFM')).to be_nil
     end
 
+    it 'handles invalid characters' do
+      expect(described_class.validate('OK7Q-CTFM-LMTC')).to be_nil
+    end
+
     context 'valid cases: lowercase, different separator and parts' do
       [
         ['1k7q-ctfm-lmtc'],
