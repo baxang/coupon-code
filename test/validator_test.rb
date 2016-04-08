@@ -1,6 +1,6 @@
 require 'test_helper'
 
-describe 'Validator' do
+describe Validator do
   it 'should be loaded.' do
     CouponCode.must_respond_to(:validate)
   end
