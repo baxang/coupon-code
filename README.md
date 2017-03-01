@@ -48,6 +48,13 @@ You can change the number of parts of the generated code by passing an option ha
     >> CouponCode.validate("1K7Q-CTFM-LMTC-DLGP", 4)
     => "1K7Q-CTFM-LMTC-DLGP"
 
+You can also change the length of each part like:
+
+    >> CouponCode.generate(parts: 3, part_length: 5)
+    => "GRG65-X0PF4-KP7TJ"
+    >> CouponCode.validate("1K7Q-CTFM-LMTC-DLGP", 3, 5)
+    => "1K7Q-CTFM-LMTC-DLGP"
+
 ## Testing
 
 ```ruby
