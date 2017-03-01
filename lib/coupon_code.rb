@@ -7,25 +7,27 @@ module CouponCode
   PARTS  = 3
   LENGTH = 4
 
-  def self.generate(options = { parts: PARTS })
+  def self.generate(options = { parts: PARTS, part_length: LENGTH })
     num_parts = options.delete(:parts)
+    length_of_parts = options.delete(:part_length) || LENGTH
+
     parts = []
     (1..num_parts).each do |i|
       part = ''
-      (1...LENGTH).each { part << random_symbol }
+      (1...length_of_parts).each { part << random_symbol }
       part << checkdigit_alg_1(part, i)
       parts << part
     end
     parts.join('-')
   end
 
-  def self.validate(orig, num_parts = PARTS)
+  def self.validate(orig, num_parts = PARTS, part_length = LENGTH)
     code = orig.upcase
     code.gsub!(/[^#{SYMBOL}]+/, '')
-    parts = code.scan(/[#{SYMBOL}]{#{LENGTH}}/)
+    parts = code.scan(/[#{SYMBOL}]{#{part_length}}/)
     return if parts.length != num_parts
     parts.each_with_index do |part, i|
-      data  = part[0...(LENGTH - 1)]
+      data  = part[0...(part_length - 1)]
       check = part[-1]
       return if check != checkdigit_alg_1(data, i + 1)
     end
