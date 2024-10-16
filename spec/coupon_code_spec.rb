@@ -29,12 +29,12 @@ RSpec.describe CouponCode do
       expect(described_class.validate("1K7Q-CTFM-LMTC")).to eq("1K7Q-CTFM-LMTC")
     end
 
-    it 'validates with a custom length' do
-      expect(described_class.validate('GRG65-X0PF4-KP7TJ', 3, 5)).to eq('GRG65-X0PF4-KP7TJ')
+    it "validates with a custom length" do
+      expect(described_class.validate("GRG65-X0PF4-KP7TJ", 3, 5)).to eq("GRG65-X0PF4-KP7TJ")
     end
 
-    it 'validates and returns the code in uppercase letters' do
-      expect(described_class.validate('1K7Q-ctfm-LMTC')).to eq('1K7Q-CTFM-LMTC')
+    it "validates and returns the code in uppercase letters" do
+      expect(described_class.validate("1K7Q-ctfm-LMTC")).to eq("1K7Q-CTFM-LMTC")
     end
 
     it "returns nil for an invalid code" do
