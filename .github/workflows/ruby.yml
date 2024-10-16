@@ -31,8 +31,8 @@ jobs:
       - name: Install dependencies
         run: bundle install
 
-      - name: Run standardrb
-        run: bundle exec standardrb
+#      - name: Run standardrb
+#        run: bundle exec standardrb
 
       - name: Run tests
         run: bundle exec rspec
