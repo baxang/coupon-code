@@ -27,13 +27,13 @@ module CouponCode
     parts.each_with_index do |part, i|
       data = part[0...(LENGTH - 1)]
       check = part[-1]
-      return if check != checkdigit_alg_1(data, i + 1)
+      break if check != checkdigit_alg_1(data, i + 1)
     end
     parts.join("-")
   end
 
   def self.checkdigit_alg_1(orig, check)
-    orig.split("").each_with_index do |c, _|
+    orig.chars.each_with_index do |c, _|
       k = SYMBOL.index(c)
       check = check * 19 + k
     end

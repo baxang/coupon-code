@@ -1,0 +1,2 @@
+format: progress        # default: Standard::Formatter
+ruby_version: 2.6       # default: RUBY_VERSION
