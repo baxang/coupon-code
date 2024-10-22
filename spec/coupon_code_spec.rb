@@ -15,11 +15,22 @@ RSpec.describe CouponCode do
       subject { described_class.generate(parts: 2) }
       it { is_expected.to match(/^\w{4}-\w{4}$/) }
     end
+
+    context "when passed part_length" do
+      subject { described_class.generate(part_length: 4, parts: 1) }
+      it "allows part length to be set" do
+        expect(subject.length).to equal(4)
+      end
+    end
   end
 
   describe ".validate" do
     it "validates a good code" do
       expect(described_class.validate("1K7Q-CTFM-LMTC")).to eq("1K7Q-CTFM-LMTC")
+    end
+
+    it "validates with a custom length" do
+      expect(described_class.validate("GRG65-X0PF4-KP7TJ", 3, 5)).to eq("GRG65-X0PF4-KP7TJ")
     end
 
     it "validates and returns the code in uppercase letters" do
