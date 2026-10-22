@@ -1,6 +1,4 @@
-[![Build Status](https://travis-ci.org/baxang/coupon-code.svg)](https://travis-ci.org/baxang/coupon-code)
-[![Code Climate](https://codeclimate.com/github/baxang/coupon-code/badges/gpa.svg)](https://codeclimate.com/github/baxang/coupon-code)
-[![Test Coverage](https://codeclimate.com/github/baxang/coupon-code/badges/coverage.svg)](https://codeclimate.com/github/baxang/coupon-code/coverage)
+[![Ruby](https://github.com/baxang/coupon-code/actions/workflows/ruby.yml/badge.svg)](https://github.com/baxang/coupon-code/actions/workflows/ruby.yml)
 [![Gem Version](https://badge.fury.io/rb/coupon_code.svg)](http://badge.fury.io/rb/coupon_code)
 
 # CouponCode
@@ -12,8 +10,6 @@
 It is a Ruby implementation of [Grant][grant]'s [Algorithm::CouponCode][couponcode]. Please read [the original documentation of Algorithm::CouponCode](http://search.cpan.org/dist/Algorithm-CouponCode/lib/Algorithm/CouponCode.pm) for more details.
 
 Please be aware that some of the original CPAN module's features are not implemented yet. For example, generating codes by plaintext, auto correction, and jQuery plugin are missing in this gem.
-
-This gem is developed for https://stripes.co.kr
 
 ## Installation
 
@@ -44,16 +40,16 @@ Or install it yourself as:
 You can change the number of parts of the generated code by passing an option hash value like:
 
     >> CouponCode.generate(parts: 4)
-    => "1K7Q-CTFM-LMTC-DLGP"
-    >> CouponCode.validate("1K7Q-CTFM-LMTC-DLGP", 4)
-    => "1K7Q-CTFM-LMTC-DLGP"
+    => "7YQH-1FU7-E1HX-0BG9"
+    >> CouponCode.validate("7YQH-1FU7-E1HX-0BG9", 4)
+    => "7YQH-1FU7-E1HX-0BG9"
 
 You can also change the length of each part like:
 
     >> CouponCode.generate(parts: 3, part_length: 5)
     => "GRG65-X0PF4-KP7TJ"
-    >> CouponCode.validate("1K7Q-CTFM-LMTC-DLGP", 3, 5)
-    => "1K7Q-CTFM-LMTC-DLGP"
+    >> CouponCode.validate("GRG65-X0PF4-KP7TJ", 3, 5)
+    => "GRG65-X0PF4-KP7TJ"
 
 ## Testing
 

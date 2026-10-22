@@ -15,8 +15,6 @@
 하지만 현 시점에는 펄 버전이 가진 세심하고 다양한 기능이 모두 구현되어 있지 않다는 점을 기억해 주십시오.
 평문을 입력해 코드를 생성하는 기능이나 자동교정, 금칙어 설정, 그리고 클라이언트 상에서의 코드 검증을 위한 jQuery 플러그인은 포함되어있지 않습니다.
 
-이 루비 젬은 [https://stripes.co.kr](https://stripes.co.kr)를 위해 개발됐습니다.
-
 ## 설치
 
 애플리케이션의 Gemfile에 아래의 코드 한 줄을 추가하십시오:
@@ -46,9 +44,9 @@
 쿠폰 코드를 만들 때 아래와 같이 옵션값을 넣어, 기본 설정인 3부분이 아닌 쿠폰 코드를 얻을 수 있습니다. 
 
     >> CouponCode.generate(parts: 4)
-    => "1K7Q-CTFM-LMTC-DLGP"
-    >> CouponCode.validate("1K7Q-CTFM-LMTC-DLGP", 4)
-    => "1K7Q-CTFM-LMTC-DLGP"
+    => "7YQH-1FU7-E1HX-0BG9"
+    >> CouponCode.validate("7YQH-1FU7-E1HX-0BG9", 4)
+    => "7YQH-1FU7-E1HX-0BG9"
 
 ## 테스팅
 
