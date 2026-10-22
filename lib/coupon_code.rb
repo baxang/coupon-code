@@ -26,11 +26,7 @@ module CouponCode
     code.gsub!(/[^#{SYMBOL}]+/o, "")
     parts = code.scan(/[#{SYMBOL}]{#{part_length}}/)
     return if parts.length != num_parts
-    parts.each_with_index do |part, i|
-      data = part[0...(part_length - 1)]
-      check = part[-1]
-      break if check != checkdigit_alg_1(data, i + 1)
-    end
+    return unless parts.each_with_index.all? { |part, i| part[-1] == checkdigit_alg_1(part[0...-1], i + 1) }
     parts.join("-")
   end
 

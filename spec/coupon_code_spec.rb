@@ -45,6 +45,14 @@ RSpec.describe CouponCode do
       expect(described_class.validate("OK7Q-CTFM-LMTC")).to be_nil
     end
 
+    it "returns nil for a wrong check digit in the last part" do
+      expect(described_class.validate("1K7Q-CTFM-LMTD")).to be_nil
+    end
+
+    it "returns nil for a wrong check digit in an earlier part" do
+      expect(described_class.validate("1K7A-CTFM-LMTC")).to be_nil
+    end
+
     context "valid cases: lowercase, different separator and parts" do
       [
         ["1k7q-ctfm-lmtc"],
