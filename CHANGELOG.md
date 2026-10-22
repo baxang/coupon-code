@@ -9,7 +9,7 @@
 ### 0.0.3
  - add ability to specify length #15 (fourcolors)
 
-### Unreleased
+### 0.1.0
  - **Behaviour change:** `.validate` now returns `nil` for codes with a wrong check digit. 0.0.3 accepted them by mistake. (#17)
  - Generate codes with `SecureRandom` instead of `rand`. (#17)
  - Ruby 4 support: frozen string literals, no warnings. (#17)
