@@ -39,6 +39,11 @@ RSpec.describe CouponCode do
       it { is_expected.to match(/^\w{4}-\w{4}-\w{4}$/) }
     end
 
+    context "when passed nil options" do
+      subject { Timeout.timeout(1) { described_class.generate(parts: nil, part_length: nil) } }
+      it { is_expected.to match(/^\w{4}-\w{4}-\w{4}$/) }
+    end
+
     it "leaves the options hash unchanged" do
       options = {parts: 2, part_length: 5}
       described_class.generate(options)

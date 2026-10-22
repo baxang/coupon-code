@@ -9,8 +9,8 @@ module CouponCode
   LENGTH = 4
 
   def self.generate(options = {})
-    num_parts = options.fetch(:parts, PARTS)
-    length_of_parts = options.fetch(:part_length, LENGTH)
+    num_parts = options[:parts] || PARTS
+    length_of_parts = options[:part_length] || LENGTH
 
     parts = []
     (1..num_parts).each do |i|
