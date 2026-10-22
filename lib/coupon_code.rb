@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "coupon_code/version"
 require "securerandom"
 
@@ -12,10 +14,8 @@ module CouponCode
 
     parts = []
     (1..num_parts).each do |i|
-      part = ""
-      (1...length_of_parts).each { part << random_symbol }
-      part << checkdigit_alg_1(part, i)
-      parts << part
+      data = (1...length_of_parts).map { random_symbol }.join
+      parts << data + checkdigit_alg_1(data, i)
     end
     parts.join("-")
   end
