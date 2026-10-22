@@ -1,6 +1,5 @@
 require "coupon_code/version"
 require "securerandom"
-require "digest/sha1"
 
 module CouponCode
   SYMBOL = "0123456789ABCDEFGHJKLMNPQRTUVWXY"
@@ -39,6 +38,6 @@ module CouponCode
   end
 
   def self.random_symbol
-    SYMBOL[rand(SYMBOL.length)]
+    SYMBOL[SecureRandom.random_number(SYMBOL.length)]
   end
 end

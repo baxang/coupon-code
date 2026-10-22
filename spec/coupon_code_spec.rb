@@ -11,6 +11,11 @@ RSpec.describe CouponCode do
       is_expected.not_to eq(code2)
     end
 
+    it "uses a secure random source" do
+      expect(SecureRandom).to receive(:random_number).with(CouponCode::SYMBOL.length).at_least(:once).and_call_original
+      subject
+    end
+
     context "2 parts" do
       subject { described_class.generate(parts: 2) }
       it { is_expected.to match(/^\w{4}-\w{4}$/) }
