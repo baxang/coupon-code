@@ -1,4 +1,5 @@
 require "spec_helper"
+require "timeout"
 
 RSpec.describe CouponCode do
   describe ".generate" do
@@ -26,6 +27,27 @@ RSpec.describe CouponCode do
       it "allows part length to be set" do
         expect(subject.length).to equal(4)
       end
+    end
+
+    context "when passed only part_length" do
+      subject { Timeout.timeout(1) { described_class.generate(part_length: 5) } }
+      it { is_expected.to match(/^\w{5}-\w{5}-\w{5}$/) }
+    end
+
+    context "when passed an empty hash" do
+      subject { Timeout.timeout(1) { described_class.generate({}) } }
+      it { is_expected.to match(/^\w{4}-\w{4}-\w{4}$/) }
+    end
+
+    context "when passed nil options" do
+      subject { Timeout.timeout(1) { described_class.generate(parts: nil, part_length: nil) } }
+      it { is_expected.to match(/^\w{4}-\w{4}-\w{4}$/) }
+    end
+
+    it "leaves the options hash unchanged" do
+      options = {parts: 2, part_length: 5}
+      described_class.generate(options)
+      expect(options).to eq(parts: 2, part_length: 5)
     end
   end
 
