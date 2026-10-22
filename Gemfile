@@ -1,4 +1,10 @@
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in coupon_code.gemspec
 gemspec
+
+gem "rake"
+gem "rspec", "~> 3"
+
+group :lint do
+  gem "standard"
+end
