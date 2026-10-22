@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 require "coupon_code/version"
 require "securerandom"
-require "digest/sha1"
 
 module CouponCode
   SYMBOL = "0123456789ABCDEFGHJKLMNPQRTUVWXY"
@@ -13,10 +14,8 @@ module CouponCode
 
     parts = []
     (1..num_parts).each do |i|
-      part = ""
-      (1...length_of_parts).each { part << random_symbol }
-      part << checkdigit_alg_1(part, i)
-      parts << part
+      data = (1...length_of_parts).map { random_symbol }.join
+      parts << data + checkdigit_alg_1(data, i)
     end
     parts.join("-")
   end
@@ -26,11 +25,7 @@ module CouponCode
     code.gsub!(/[^#{SYMBOL}]+/o, "")
     parts = code.scan(/[#{SYMBOL}]{#{part_length}}/)
     return if parts.length != num_parts
-    parts.each_with_index do |part, i|
-      data = part[0...(part_length - 1)]
-      check = part[-1]
-      break if check != checkdigit_alg_1(data, i + 1)
-    end
+    return unless parts.each_with_index.all? { |part, i| part[-1] == checkdigit_alg_1(part[0...-1], i + 1) }
     parts.join("-")
   end
 
@@ -43,6 +38,6 @@ module CouponCode
   end
 
   def self.random_symbol
-    SYMBOL[rand(SYMBOL.length)]
+    SYMBOL[SecureRandom.random_number(SYMBOL.length)]
   end
 end
