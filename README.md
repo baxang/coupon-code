@@ -7,9 +7,9 @@
 
 [CouponCode gem][rubygems] generates and validates coupon codes that are suitable for e-commerce services and businesses.
 
-It is a Ruby implementation of [Grant][grant]'s [Algorithm::CouponCode][couponcode]. Please read [the original documentation of Algorithm::CouponCode](http://search.cpan.org/dist/Algorithm-CouponCode/lib/Algorithm/CouponCode.pm) for more details.
+It is a Ruby implementation of [Grant][grant]'s [Algorithm::CouponCode][couponcode]. Please read [the original documentation of Algorithm::CouponCode](https://metacpan.org/pod/Algorithm::CouponCode) for more details.
 
-Please be aware that some of the original CPAN module's features are not implemented yet. For example, generating codes by plaintext, auto correction, and jQuery plugin are missing in this gem.
+Please be aware that some of the original CPAN module's features are not implemented yet. This gem does not generate codes from plaintext, auto-correct mistyped characters, filter out bad words, or skip codes where swapped characters still pass the check digit, and there is no jQuery plugin.
 
 ## Installation
 
@@ -53,8 +53,16 @@ You can also change the length of each part like:
 
 ## Testing
 
-```ruby
+Run the specs:
+
+```sh
 $ bundle exec rake spec
+```
+
+Run the linter ([Standard](https://github.com/standardrb/standard)):
+
+```sh
+$ bundle exec standardrb
 ```
 
 ## Thanks to
