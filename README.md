@@ -41,14 +41,14 @@ You can change the number of parts of the generated code by passing an option ha
 
     >> CouponCode.generate(parts: 4)
     => "7YQH-1FU7-E1HX-0BG9"
-    >> CouponCode.validate("7YQH-1FU7-E1HX-0BG9", 4)
+    >> CouponCode.validate("7YQH-1FU7-E1HX-0BG9", parts: 4)
     => "7YQH-1FU7-E1HX-0BG9"
 
 You can also change the length of each part like:
 
     >> CouponCode.generate(parts: 3, part_length: 5)
     => "GRG65-X0PF4-KP7TJ"
-    >> CouponCode.validate("GRG65-X0PF4-KP7TJ", 3, 5)
+    >> CouponCode.validate("GRG65-X0PF4-KP7TJ", parts: 3, part_length: 5)
     => "GRG65-X0PF4-KP7TJ"
 
 ## Testing

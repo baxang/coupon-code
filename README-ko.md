@@ -45,7 +45,7 @@
 
     >> CouponCode.generate(parts: 4)
     => "7YQH-1FU7-E1HX-0BG9"
-    >> CouponCode.validate("7YQH-1FU7-E1HX-0BG9", 4)
+    >> CouponCode.validate("7YQH-1FU7-E1HX-0BG9", parts: 4)
     => "7YQH-1FU7-E1HX-0BG9"
 
 ## 테스팅
