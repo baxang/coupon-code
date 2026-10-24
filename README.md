@@ -7,9 +7,9 @@
 
 [CouponCode gem][rubygems] generates and validates coupon codes that are suitable for e-commerce services and businesses.
 
-It is a Ruby implementation of [Grant][grant]'s [Algorithm::CouponCode][couponcode]. Please read [the original documentation of Algorithm::CouponCode](http://search.cpan.org/dist/Algorithm-CouponCode/lib/Algorithm/CouponCode.pm) for more details.
+It is a Ruby implementation of [Grant][grant]'s [Algorithm::CouponCode][couponcode]. Please read [the original documentation of Algorithm::CouponCode](https://metacpan.org/pod/Algorithm::CouponCode) for more details.
 
-Please be aware that some of the original CPAN module's features are not implemented yet. For example, generating codes by plaintext, auto correction, and jQuery plugin are missing in this gem.
+Please be aware that some of the original CPAN module's features are not implemented yet. This gem does not generate codes from plaintext, auto-correct mistyped characters, filter out bad words, or skip codes where swapped characters still pass the check digit, and there is no jQuery plugin.
 
 ## Installation
 
@@ -41,20 +41,28 @@ You can change the number of parts of the generated code by passing an option ha
 
     >> CouponCode.generate(parts: 4)
     => "7YQH-1FU7-E1HX-0BG9"
-    >> CouponCode.validate("7YQH-1FU7-E1HX-0BG9", 4)
+    >> CouponCode.validate("7YQH-1FU7-E1HX-0BG9", parts: 4)
     => "7YQH-1FU7-E1HX-0BG9"
 
 You can also change the length of each part like:
 
     >> CouponCode.generate(parts: 3, part_length: 5)
     => "GRG65-X0PF4-KP7TJ"
-    >> CouponCode.validate("GRG65-X0PF4-KP7TJ", 3, 5)
+    >> CouponCode.validate("GRG65-X0PF4-KP7TJ", parts: 3, part_length: 5)
     => "GRG65-X0PF4-KP7TJ"
 
 ## Testing
 
-```ruby
+Run the specs:
+
+```sh
 $ bundle exec rake spec
+```
+
+Run the linter ([Standard](https://github.com/standardrb/standard)):
+
+```sh
+$ bundle exec standardrb
 ```
 
 ## Thanks to

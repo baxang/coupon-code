@@ -80,6 +80,30 @@ RSpec.describe CouponCode do
       expect(described_class.validate("1K7A-CTFM-LMTC")).to be_nil
     end
 
+    context "with keyword options" do
+      it "validates with parts only" do
+        expect(described_class.validate("7YQH-1FU7-E1HX-0BG9", parts: 4)).to eq("7YQH-1FU7-E1HX-0BG9")
+      end
+
+      it "validates with part_length only" do
+        expect(described_class.validate("GRG65-X0PF4-KP7TJ", part_length: 5)).to eq("GRG65-X0PF4-KP7TJ")
+      end
+
+      it "validates with parts and part_length" do
+        expect(described_class.validate("RGVFA-BA41J-302D4-9MT7L", parts: 4, part_length: 5)).to eq("RGVFA-BA41J-302D4-9MT7L")
+      end
+
+      it "returns nil for a wrong check digit" do
+        expect(described_class.validate("RGVFA-BA41J-302D4-9MT7M", parts: 4, part_length: 5)).to be_nil
+      end
+
+      it "leaves the options hash unchanged" do
+        options = {parts: 4, part_length: 5}
+        described_class.validate("RGVFA-BA41J-302D4-9MT7L", options)
+        expect(options).to eq(parts: 4, part_length: 5)
+      end
+    end
+
     context "valid cases: lowercase, different separator and parts" do
       [
         ["1k7q-ctfm-lmtc"],

@@ -21,6 +21,10 @@ module CouponCode
   end
 
   def self.validate(orig, num_parts = PARTS, part_length = LENGTH)
+    if num_parts.is_a?(Hash)
+      part_length = num_parts[:part_length] || LENGTH
+      num_parts = num_parts[:parts] || PARTS
+    end
     code = orig.upcase
     code.gsub!(/[^#{SYMBOL}]+/o, "")
     parts = code.scan(/[#{SYMBOL}]{#{part_length}}/)
